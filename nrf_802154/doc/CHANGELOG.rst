@@ -15,21 +15,23 @@ nRF Connect SDK 1.7.0 - nRF 802.15.4 Radio Driver
 Added
 =====
 
-* Zephyr temperature platform is now used for RSSI correction.
-* Support for the coexistence feature from MPSL.
+* Adopted usage of the Zephyr temperature platform for the RSSI correction.
+* Support for the coexistence feature from :ref:`nrfxlib:mpsl`.
 * Support for nRF21540 FEM GPIO interface on nRF53 Series.
 
-Notable Changes
+Notable changes
 ===============
 
-* The 802.15.4 Radio Driver Transmit API has been modified to allow specifying whether to encrypt and/or inject dynamic data into the outgoing frame (via nrf_802154_transmitted_frame_props_t type).
+* Modified the 802.15.4 Radio Driver Transmit API.
+  It now allows specifying whether to encrypt or inject dynamic data into the outgoing frame, or do both.
+  The :c:type:`nrf_802154_transmitted_frame_props_t` type is used for this purpose.
 
 Bug fixes
 =========
 
-* Allow transmission of frames with invalid Auxiliary Security Header in case of NRF_802154_ENCRYPTION=n. (KRKNWK-11218)
-* Fix IE Vendor OUI Endianess. (KRKNWK-10633)
-* Various bug fixes in the MAC Encryption layer. (KRKNWK-10646)
+* Fixed an issue where it would not be possible to transmit frames with invalid Auxiliary Security Header if :kconfig:`CONFIG_NRF_802154_ENCRYPTION` was set to ``n``. (KRKNWK-11218)
+* Fix an issue with the IE Vendor OUI endianness. (KRKNWK-10633)
+* Fixed various bugs in the MAC Encryption layer. (KRKNWK-10646)
 
 nRF Connect SDK 1.6.0 - nRF 802.15.4 Radio Driver
 *************************************************
